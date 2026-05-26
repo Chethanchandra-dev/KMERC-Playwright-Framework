@@ -21,7 +21,7 @@ export default defineConfig({
   /* Retry on CI only */
   retries: 1,           //If flaky failure happens, Playwright retries once.
   /* Opt out of parallel tests on CI. */
-  workers: 2,          //2 tests run simultaneously
+  workers: 1,          //1 tests run simultaneously
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */

@@ -4,7 +4,9 @@ import { LoginPage }from '../pages/LoginPage.js';
 
 import { readCaptcha }from '../utils/captchaUtil.js';
 
-import readline from 'readline';
+// import readline from 'readline';
+
+import { getLatestOTP } from '../utils/dbUtil.js';
 
 import { expect } from 'playwright/test';
 
@@ -53,33 +55,43 @@ When('User clicks Request OTP button',async function(){
     
 });
 
-When('User enters OTP manually',
-async function () {
+When('User enters OTP Automatically',async function(){
 
-    const rl =
-        readline.createInterface({
-            input: process.stdin,
-            output: process.stdout
-        });
+    const otp= await getLatestOTP('KFD_DLO_BAL_LD');
 
-    const otp =
-        await new Promise(resolve => {
+    console.log('fetch otp',otp);
 
-            rl.question(
-                'Enter OTP: ',
-                answer => {
-
-                    rl.close();
-
-                    resolve(answer);
-
-                });
-
-        });
-
-    await loginPage.enterOTP(otp);
+    await loginPage.enterOTP(otp.toString());
 
 });
+
+// When('User enters OTP manually',
+// async function () {
+
+//     const rl =
+//         readline.createInterface({
+//             input: process.stdin,
+//             output: process.stdout
+//         });
+
+//     const otp =
+//         await new Promise(resolve => {
+
+//             rl.question(
+//                 'Enter OTP: ',
+//                 answer => {
+
+//                     rl.close();
+
+//                     resolve(answer);
+
+//                 });
+
+//         });
+
+//     await loginPage.enterOTP(otp);
+
+// });
 
 Then('User clicks Validate OTP button',
 async function () {

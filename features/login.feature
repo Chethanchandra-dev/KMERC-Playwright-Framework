@@ -18,6 +18,6 @@ And User clicks Sign In button
 
 And User clicks Request OTP button
 
-And User enters OTP manually
+And User enters OTP Automatically
 
 Then User clicks Validate OTP button
