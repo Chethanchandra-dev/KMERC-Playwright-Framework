@@ -8,7 +8,7 @@ import { chromium } from '@playwright/test';
 setDefaultTimeout(60*1000);
 
 Before(async function(){
-    this.browser=await chromium.launch({ headless:true });
+    this.browser=await chromium.launch({ headless:false});
     const context=await this.browser.newContext({
         ignoreHTTPSErrors:true
     });
