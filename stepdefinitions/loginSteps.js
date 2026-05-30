@@ -12,7 +12,7 @@ import { expect } from 'playwright/test';
 
 import loginData from '../testdata/loginData.json' with {type:'json'};
 
-let loginPage;
+let loginPage;   //Creationg an Object
 
 Given('User launches KMERC application',async function () {
 

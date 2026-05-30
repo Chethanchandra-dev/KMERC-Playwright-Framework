@@ -1,12 +1,15 @@
 import { test, expect, request } from '@playwright/test';
 import SHA256 from 'crypto-js/sha256.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 test('KMERC Login API Test', async () => {
 
     const apiContext = await request.newContext();
 
     // Encrypt password exactly like application
-    const encryptedPassword = SHA256('opr@123').toString();
+    const encryptedPassword = SHA256(process.env.API_PASSWORD).toString();
 
     const response = await apiContext.post(
         'https://49.204.72.13:8443/Login/VerifyCredential',
@@ -17,7 +20,7 @@ test('KMERC Login API Test', async () => {
 
             data: {
                 LoginModel: {
-                    username: 'KFD_DLO_BAL_LD',
+                    username: process.env.API_USERNAME,
                     password: encryptedPassword,
                     captcha: '1234'
                 }

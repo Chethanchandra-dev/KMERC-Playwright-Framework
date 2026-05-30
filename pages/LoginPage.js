@@ -20,7 +20,8 @@ constructor(page){
 
     async goto(){
 
-        await this.page.goto(process.env.BASE_URL);
+        await this.page.goto('https://49.204.72.13:8443/');
+        // await this.page.goto(process.env.BASE_URL);
     }
 
     async clickLoginButon(){
@@ -65,8 +66,6 @@ constructor(page){
 
 
 }
-
-
 
 //     this.username=page.getByRole("textbox", { name: "Username" });
 //     this.password=page.getByRole("textbox", { name: "Password" });

@@ -1,9 +1,6 @@
-@somke
-@regression
 
 Feature: KMERC Login
 
-@Login
 Scenario: Valid Login
 
 Given User launches KMERC application
