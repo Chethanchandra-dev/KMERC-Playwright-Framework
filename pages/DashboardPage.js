@@ -1,6 +1,7 @@
 export class DashboardPage{
 
     constructor(page){
+        
         this.page=page;
         
         this.projectplanningMenu=page.getByRole('link',{name:'Project Planning'});
